@@ -1,0 +1,36 @@
+{
+    "name": "Chrome First Extension",
+    "manifest_version": 3,
+    "version": "1.0.0",
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "action": {
+        "default_popup": "hello.html"
+    },
+    "commands": {
+        "_execute_action": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+C",
+                "mac": "MacCtrl+Shift+C"
+            },
+            "description": "Opens hello.html"
+        }
+    },
+    "options_page": "options.html"
+}
